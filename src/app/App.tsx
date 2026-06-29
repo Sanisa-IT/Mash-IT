@@ -134,10 +134,11 @@ function Navbar({ activeView, setView }: { activeView: View; setView: (v: View) 
 
         <div className="hidden md:flex items-center gap-6">
           {[
+            { label: "Home", view: "landing" as View },
             { label: "Jobs", view: "jobs" as View },
             { label: "Talent", view: "talent" as View },
             { label: "For Employers", view: "dashboard" as View },
-            { label: "About", view: "landing" as View },
+            
           ].map(({ label, view }) => (
             <button
               key={label}
