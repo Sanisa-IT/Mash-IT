@@ -1,4 +1,5 @@
 import { useState } from "react";
+import mashitIcon from "../assets/mashit-icon.png";
 import {
   Search,
   MapPin,
@@ -111,9 +112,9 @@ const jobs = [
 ];
 
 const typeColor: Record<string, string> = {
-  "Full Time": "bg-blue-50 text-blue-700",
-  "Part Time": "bg-violet-50 text-violet-700",
-  Contract: "bg-amber-50 text-amber-700",
+  "Full Time": "bg-teal-50 text-teal-600",
+  "Part Time": "bg-orange-50 text-orange-700",
+  Contract: "bg-orange-50 text-orange-700",
 };
 
 function Navbar({ activeView, setView }: { activeView: View; setView: (v: View) => void }) {
@@ -123,13 +124,11 @@ function Navbar({ activeView, setView }: { activeView: View; setView: (v: View) 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         <button
           onClick={() => setView("landing")}
-          className="flex items-center gap-2 font-bold text-xl text-primary"
-          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          className="flex items-center gap-2 font-extrabold text-xl text-primary"
+          style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-white text-sm font-black">M</span>
-          </div>
-          Mash IT
+          <img src={mashitIcon} alt="Mash It" className="w-8 h-8 object-contain" />
+          mash <span className="text-orange">it</span>
         </button>
 
         <div className="hidden md:flex items-center gap-6">
@@ -145,7 +144,7 @@ function Navbar({ activeView, setView }: { activeView: View; setView: (v: View) 
               onClick={() => setView(view)}
               className={`text-sm font-medium transition-colors ${
                 activeView === view
-                  ? "text-primary"
+                  ? "text-teal-600"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -158,7 +157,7 @@ function Navbar({ activeView, setView }: { activeView: View; setView: (v: View) 
           <button className="text-sm font-medium text-muted-foreground hover:text-foreground flex items-center gap-1.5">
             <LogIn size={15} /> Log In
           </button>
-          <button className="bg-primary text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+          <button className="bg-orange text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors flex items-center gap-1.5">
             <UserPlus size={15} /> Sign Up
           </button>
         </div>
@@ -176,7 +175,7 @@ function Navbar({ activeView, setView }: { activeView: View; setView: (v: View) 
           ))}
           <div className="flex gap-2 pt-2">
             <button className="flex-1 border border-border text-sm font-medium py-2 rounded-lg">Log In</button>
-            <button className="flex-1 bg-primary text-white text-sm font-medium py-2 rounded-lg">Sign Up</button>
+            <button className="flex-1 bg-orange text-white text-sm font-medium py-2 rounded-lg">Sign Up</button>
           </div>
         </div>
       )}
@@ -191,23 +190,26 @@ function LandingPage({ setView }: { setView: (v: View) => void }) {
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+            <span className="inline-flex items-center gap-1.5 bg-teal-50 text-teal-600 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
               <TrendingUp size={12} /> 10,000+ opportunities live
             </span>
             <h1
               className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight mb-5"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               Find Talent.<br />
-              <span className="text-primary">Find Opportunity.</span>
+              <span className="text-orange">Find Opportunity.</span>
             </h1>
-            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+            <p className="text-muted-foreground text-lg mb-2 leading-relaxed">
               Connecting creative, digital, media and tech talent with the right opportunities across the UK.
+            </p>
+            <p className="text-teal-600 text-sm font-semibold tracking-wide uppercase mb-8">
+              Talent · Opportunity · Impact
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => setView("jobs")}
-                className="bg-primary text-white font-semibold px-6 py-3 rounded-xl hover:bg-blue-700 transition-colors shadow-md shadow-blue-200"
+                className="bg-orange text-white font-semibold px-6 py-3 rounded-xl hover:bg-orange-600 transition-colors shadow-md shadow-orange-200"
               >
                 Find a Job
               </button>
@@ -222,13 +224,13 @@ function LandingPage({ setView }: { setView: (v: View) => void }) {
 
           <div className="flex justify-center">
             <div className="relative">
-              <div className="w-72 h-72 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-full flex items-center justify-center">
+              <div className="w-72 h-72 bg-gradient-to-br from-teal-50 to-orange-50 rounded-full flex items-center justify-center">
                 <div className="relative">
                   <div className="w-32 h-32 bg-primary/10 rounded-full flex items-center justify-center">
                     <Users size={56} className="text-primary/60" />
                   </div>
                   <div className="absolute -top-2 -right-2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border border-border">
-                    <Search size={20} className="text-primary" />
+                    <Search size={20} className="text-orange" />
                   </div>
                 </div>
               </div>
@@ -260,8 +262,8 @@ function LandingPage({ setView }: { setView: (v: View) => void }) {
             { n: "92%", label: "Placement Rate" },
           ].map((s) => (
             <div key={s.label}>
-              <p className="text-2xl font-extrabold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.n}</p>
-              <p className="text-blue-200 text-sm mt-0.5">{s.label}</p>
+              <p className="text-2xl font-extrabold" style={{ fontFamily: "'Montserrat', sans-serif" }}>{s.n}</p>
+              <p className="text-teal-200 text-sm mt-0.5">{s.label}</p>
             </div>
           ))}
         </div>
@@ -269,14 +271,14 @@ function LandingPage({ setView }: { setView: (v: View) => void }) {
 
       {/* Categories */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <h2 className="text-2xl font-bold text-foreground mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Browse by Category</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-2" style={{ fontFamily: "'Montserrat', sans-serif" }}>Browse by Category</h2>
         <p className="text-muted-foreground mb-8">Explore opportunities in your field</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Design", count: "1,240 jobs", icon: "🎨", color: "bg-violet-50 border-violet-100" },
-            { label: "Engineering", count: "3,850 jobs", icon: "💻", color: "bg-blue-50 border-blue-100" },
-            { label: "Marketing", count: "980 jobs", icon: "📣", color: "bg-amber-50 border-amber-100" },
-            { label: "Media", count: "670 jobs", icon: "🎬", color: "bg-pink-50 border-pink-100" },
+            { label: "Design", count: "1,240 jobs", icon: "🎨", color: "bg-orange-50 border-orange-100" },
+            { label: "Engineering", count: "3,850 jobs", icon: "💻", color: "bg-teal-50 border-teal-100" },
+            { label: "Marketing", count: "980 jobs", icon: "📣", color: "bg-orange-50 border-orange-100" },
+            { label: "Media", count: "670 jobs", icon: "🎬", color: "bg-teal-50 border-teal-100" },
           ].map((cat) => (
             <button
               key={cat.label}
@@ -296,7 +298,7 @@ function LandingPage({ setView }: { setView: (v: View) => void }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Featured Jobs</h2>
+              <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "'Montserrat', sans-serif" }}>Featured Jobs</h2>
               <p className="text-muted-foreground mt-1">Handpicked roles from top employers</p>
             </div>
             <button
@@ -338,7 +340,7 @@ function JobCard({ job, onClick }: { job: typeof jobs[0]; onClick: () => void })
             </p>
           </div>
         </div>
-        <span className={`text-xs font-medium px-2.5 py-1 rounded-full shrink-0 ${typeColor[job.type] ?? "bg-gray-50 text-gray-600"}`}>
+        <span className={`text-xs font-medium px-2.5 py-1 rounded-full shrink-0 ${typeColor[job.type] ?? "bg-slate-100 text-slate-600"}`}>
           {job.type}
         </span>
       </div>
@@ -371,7 +373,7 @@ function JobsPage({ setView, selectedJob, setSelectedJob }: {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-      <h1 className="text-2xl font-bold text-foreground mb-6" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+      <h1 className="text-2xl font-bold text-foreground mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
         Find Your Next Role
       </h1>
 
@@ -407,7 +409,7 @@ function JobsPage({ setView, selectedJob, setSelectedJob }: {
               key={job.id}
               onClick={() => { setSelectedJob(job); setView("job-detail"); }}
               className={`w-full text-left border rounded-xl p-4 transition-all hover:shadow-md ${
-                displayJob.id === job.id ? "border-primary bg-blue-50/50" : "border-border bg-white hover:border-primary/30"
+                displayJob.id === job.id ? "border-primary bg-teal-50/50" : "border-border bg-white hover:border-primary/30"
               }`}
             >
               <div className="flex items-start gap-3">
@@ -421,7 +423,7 @@ function JobsPage({ setView, selectedJob, setSelectedJob }: {
                   <h3 className="font-semibold text-sm text-foreground">{job.title}</h3>
                   <p className="text-xs text-muted-foreground mt-0.5">{job.company} · {job.location}</p>
                   <div className="flex items-center gap-2 mt-2">
-                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${typeColor[job.type] ?? "bg-gray-50 text-gray-600"}`}>
+                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${typeColor[job.type] ?? "bg-slate-100 text-slate-600"}`}>
                       {job.type}
                     </span>
                     <span className="text-xs text-muted-foreground">{job.salary}</span>
@@ -453,7 +455,7 @@ function JobDetailContent({ job }: { job: typeof jobs[0] }) {
           {job.logo}
         </div>
         <div>
-          <h2 className="text-xl font-bold text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          <h2 className="text-xl font-bold text-foreground" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             {job.title}
           </h2>
           <p className="text-muted-foreground text-sm mt-0.5">{job.company} · {job.location}</p>
@@ -500,7 +502,7 @@ function JobDetailContent({ job }: { job: typeof jobs[0] }) {
           className={`flex-1 py-3 rounded-xl font-semibold text-sm transition-all ${
             applied
               ? "bg-green-500 text-white cursor-default"
-              : "bg-primary text-white hover:bg-blue-700 shadow-md shadow-blue-200"
+              : "bg-primary text-white hover:bg-teal-600 shadow-md shadow-teal-200"
           }`}
         >
           {applied ? "✓ Application Sent" : "Apply Now"}
@@ -551,7 +553,7 @@ const talent = {
 function TalentPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-      <h1 className="text-2xl font-bold text-foreground mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Talent Network</h1>
+      <h1 className="text-2xl font-bold text-foreground mb-2" style={{ fontFamily: "'Montserrat', sans-serif" }}>Talent Network</h1>
       <p className="text-muted-foreground mb-8">Discover top creative, digital, media and tech professionals</p>
 
       <div className="grid lg:grid-cols-3 gap-6">
@@ -559,10 +561,10 @@ function TalentPage() {
         <div className="lg:col-span-1">
           <div className="bg-white border border-border rounded-xl p-6">
             <div className="flex flex-col items-center text-center mb-5">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-3">
+              <div className="w-20 h-20 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-3">
                 JL
               </div>
-              <h2 className="font-bold text-lg text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <h2 className="font-bold text-lg text-foreground" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                 {talent.name}
               </h2>
               <p className="text-muted-foreground text-sm">{talent.title}</p>
@@ -584,13 +586,13 @@ function TalentPage() {
 
             <div className="flex flex-wrap gap-2 mb-5">
               {talent.skills.map((skill) => (
-                <span key={skill} className="bg-blue-50 text-blue-700 text-xs font-medium px-2.5 py-1 rounded-full">
+                <span key={skill} className="bg-teal-50 text-teal-600 text-xs font-medium px-2.5 py-1 rounded-full">
                   {skill}
                 </span>
               ))}
             </div>
 
-            <button className="w-full bg-primary text-white font-semibold py-2.5 rounded-xl text-sm hover:bg-blue-700 transition-colors shadow-md shadow-blue-200">
+            <button className="w-full bg-primary text-white font-semibold py-2.5 rounded-xl text-sm hover:bg-teal-600 transition-colors shadow-md shadow-teal-200">
               Contact Jordan
             </button>
           </div>
@@ -604,7 +606,7 @@ function TalentPage() {
               {talent.experience.map((exp, i) => (
                 <div key={i} className="flex gap-4">
                   <div className="flex flex-col items-center">
-                    <div className="w-8 h-8 bg-blue-50 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-teal-50 rounded-full flex items-center justify-center">
                       <Briefcase size={14} className="text-primary" />
                     </div>
                     {i < talent.experience.length - 1 && (
@@ -658,8 +660,8 @@ function TalentPage() {
 
 function DashboardPage() {
   const stats = [
-    { label: "Active Jobs", value: 12, icon: <Briefcase size={18} />, color: "bg-blue-50 text-blue-700" },
-    { label: "Applicants", value: 45, icon: <Users size={18} />, color: "bg-violet-50 text-violet-700" },
+    { label: "Active Jobs", value: 12, icon: <Briefcase size={18} />, color: "bg-teal-50 text-teal-600" },
+    { label: "Applicants", value: 45, icon: <Users size={18} />, color: "bg-orange-50 text-orange-700" },
     { label: "Interviews", value: 8, icon: <CheckCircle size={18} />, color: "bg-green-50 text-green-700" },
   ];
 
@@ -672,8 +674,8 @@ function DashboardPage() {
   ];
 
   const statusStyle: Record<string, string> = {
-    New: "bg-blue-50 text-blue-700",
-    Reviewing: "bg-amber-50 text-amber-700",
+    New: "bg-teal-50 text-teal-600",
+    Reviewing: "bg-orange-50 text-orange-700",
     Interview: "bg-green-50 text-green-700",
     Rejected: "bg-red-50 text-red-600",
   };
@@ -682,7 +684,7 @@ function DashboardPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          <h1 className="text-2xl font-bold text-foreground" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             Employer Dashboard
           </h1>
           <p className="text-muted-foreground mt-1">Welcome back, Acme Creative</p>
@@ -704,7 +706,7 @@ function DashboardPage() {
             <div className={`w-10 h-10 ${s.color} rounded-lg flex items-center justify-center mb-3`}>
               {s.icon}
             </div>
-            <p className="text-3xl font-extrabold text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <p className="text-3xl font-extrabold text-foreground" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               {s.value}
             </p>
             <p className="text-sm text-muted-foreground mt-0.5">{s.label}</p>
@@ -765,8 +767,8 @@ function DashboardPage() {
 
           <div className="bg-primary rounded-xl p-5 text-white">
             <h3 className="font-semibold mb-2">Post a New Job</h3>
-            <p className="text-blue-200 text-sm mb-4">Reach thousands of qualified candidates in your sector.</p>
-            <button className="w-full bg-white text-primary font-semibold py-2 rounded-lg text-sm hover:bg-blue-50 transition-colors">
+            <p className="text-teal-200 text-sm mb-4">Reach thousands of qualified candidates in your sector.</p>
+            <button className="w-full bg-white text-primary font-semibold py-2 rounded-lg text-sm hover:bg-teal-50 transition-colors">
               Create Job Listing
             </button>
           </div>
@@ -803,13 +805,11 @@ export default function App() {
       {/* Footer */}
       <footer className="border-t border-border bg-white mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 font-bold text-foreground" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-            <div className="w-7 h-7 rounded-md bg-primary flex items-center justify-center">
-              <span className="text-white text-xs font-black">M</span>
-            </div>
-            Mash IT
+          <div className="flex items-center gap-2 font-extrabold text-foreground" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            <img src={mashitIcon} alt="Mash It" className="w-7 h-7 object-contain" />
+            mash <span className="text-orange">it</span>
           </div>
-          <p className="text-xs text-muted-foreground">© 2026 Mash IT. Connecting talent with opportunity.</p>
+          <p className="text-xs text-muted-foreground">© 2026 Mash It. Connecting talent with opportunity.</p>
           <div className="flex gap-4">
             {["Privacy", "Terms", "Contact"].map((l) => (
               <a key={l} href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">{l}</a>
